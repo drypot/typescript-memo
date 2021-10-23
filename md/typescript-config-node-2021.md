@@ -1,10 +1,10 @@
-# TypeScript Config for Node 2021
+# TypeScript Config for Node.js 2021
 
 초판: 2021-10-23
 
 ## 들어가는 글
 
-Node.js 에서 TypeScript 를 사용하는 방법에 대한 설명입니다.\
+TypeScript 로 Node.js 에서 돌릴 코드를 만드는 방법에 대한 설명입니다.
 브라우저용은 따로 적겠습니다.
 
 ## TypeScript Install
