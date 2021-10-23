@@ -14,7 +14,7 @@ Rollup 은 WebPack 보다 설정이 간단합니다.
 ## Node.js 설정
 
 왠만하면 Node.js 설정을 CommonJS 방식으로 놔두는 것을 추천합니다.
-2021년 기준, Node.js 기본 설정을 ESM 으로 바꾸시면 여러가지 문제가 발생합니다.
+2021년 기준, Node.js 기본 설정을 ESM 으로 바꾸면 여러가지 문제가 발생합니다.
     
 ## Rollup Config
 
@@ -50,7 +50,7 @@ Rollup 환경 설정 파일 `rollup.config.js` 는 보통 프로젝트 루트에
 
 ## Input File
 
-번들링의 입구가 되는 최초의 파일 한 개를 지정해야 합니다.
+번들링의 입구가 되는 최초의 파일을 지정해야 합니다.
 이 파일만 지정하면 여기서 임포트하는 모든 파일을 Rollup 이 자동으로 묶어줍니다.
 제 설정에선 아래 파일이 되겠습니다.
 
@@ -59,7 +59,7 @@ Rollup 환경 설정 파일 `rollup.config.js` 는 보통 프로젝트 루트에
 ## Output File
 
 출력 파일을 지정합니다.
-연관된 JS 파일들이 이 파일 하나로 묶여서 떨어집니다.
+연관된 JS 파일들이 하나로 묶여서 떨어집니다.
 
     output: {
       file: 'public/build/client-rollup.js',
@@ -67,25 +67,20 @@ Rollup 환경 설정 파일 `rollup.config.js` 는 보통 프로젝트 루트에
       name: 'app',
     },
 
-파일 포멧은 익숙하게 보던 CommonJS 나 ESM 가 아닙니다.
+파일 포멧은 익숙하게 보던 CommonJS 나 ESM 이 아닙니다.
 이런 형식의 파일은 브라우저에서 막 쓰기에 난감합니다.
-브라우저에서 실행할 코드는 `iife` 형식으로 묶으시면 됩니다.
+브라우저에서 쓸 코드는 `iife` 형식으로 묶으시면 됩니다.
 
 `name` 은 `export` 한 펑션에 접근하기 위한 임의의 오브젝트 이름입니다.
-예로 TypeScript 코드에서 아래와 같은 펑션을 export 했다면,
+예로 TypeScript 코드에서 아래처럼 펑션을 export 했다면,
 
     export function helloWorld() { ... }
 
-브라우저 페이지에서 아래와 같이 불러 쓸 수 있습니다.
+HTML 페이지에서 아래와 같이 불러 쓸 수 있습니다.
 
     <script>
         app.helloWorld()
     </script>
-
-## Watch
-
-Rollup 은 소스 코드 변경을 확인하고 자동으로 출력 파일을 계속 만들 수 있습니다.
-변경을 감지할 영역은 `watch` 프로퍼티로 지정합니다.
 
 ## TypeScript
 
@@ -114,7 +109,7 @@ TypeScript 도 지원합니다. 플러그인 설정을 해두면 Rollup 이 알�
 
     import ... from '...'
 
-Rollup 을 돌리면 내 코드와 npm 패키지 코드가 같이 묶입니다.
+Rollup 하면 내 코드와 npm 패키지 코드가 같이 묶입니다.
 
 단 npm 코드를 길어 올리는 플러그인 설정을 해야합니다.
 
