@@ -8,7 +8,7 @@ TypeScript 로 브라우저에서 돌릴 코드를 만드는 방법에 대한 �
 
 ## 브라우저용 설정
 
-TypeScript 설정에 관한 중요한 내용들은 Node.js 글에 적어놨습니다.\
+TypeScript 설정에 관한 중요한 내용들은 Node.js 글에 적어놨습니다.
 
 [TypeScript Config for Node.js 2021](typescript-config-node-2021.md)
 

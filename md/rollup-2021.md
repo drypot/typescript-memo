@@ -1,6 +1,7 @@
 # Rollup 2021
 
 초판: 2021-10-23
+수정: 2021-10-29 sourcemap 옵션 관련 수정.
 
 <https://rollupjs.org>
 
@@ -31,6 +32,7 @@ Rollup 환경 설정 파일 `rollup.config.js` 는 보통 프로젝트 루트에
       input: 'src/client/ts/_all.ts',
       output: {
         file: 'public/build/client-rollup.js',
+        sourcemap: true,
         format: 'iife',
         name: 'app',
       },
@@ -42,7 +44,6 @@ Rollup 환경 설정 파일 `rollup.config.js` 는 보통 프로젝트 루트에
       plugins: [
         typescript({
           tsconfig: "src/client/tsconfig.json",
-          "sourceMap": true,
         }),
         //nodeResolve(),
       ]
@@ -63,6 +64,7 @@ Rollup 환경 설정 파일 `rollup.config.js` 는 보통 프로젝트 루트에
 
     output: {
       file: 'public/build/client-rollup.js',
+      sourcemap: true,
       format: 'iife',
       name: 'app',
     },
@@ -70,6 +72,8 @@ Rollup 환경 설정 파일 `rollup.config.js` 는 보통 프로젝트 루트에
 파일 포멧은 익숙하게 보던 CommonJS 나 ESM 이 아닙니다.
 이런 형식의 파일은 브라우저에서 막 쓰기에 난감합니다.
 브라우저에서 쓸 코드는 `iife` 형식으로 묶으시면 됩니다.
+
+sourcemap 을 출력하려면 TypeScript 설정과는 별도로 Rollup 에서도 sourcemap 옵션을 줘야합니다.
 
 `name` 은 `export` 한 펑션에 접근하기 위한 임의의 오브젝트 이름입니다.
 예로 TypeScript 코드에서 아래처럼 펑션을 export 했다면,
@@ -92,7 +96,6 @@ TypeScript 도 지원합니다. 플러그인 설정을 해두면 Rollup 이 알�
     plugins: [
       typescript({
         tsconfig: "src/client/tsconfig.json",
-        "sourceMap": true,
       })
     ]
 
